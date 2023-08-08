@@ -6,13 +6,9 @@
 /*   By: vkuzmin <zxcmasterass@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 16:56:28 by vkuzmin           #+#    #+#             */
-/*   Updated: 2023/08/08 17:09:23 by vkuzmin          ###   ########.fr       */
+/*   Updated: 2023/08/08 17:12:44 by vkuzmin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
-#include <iomanip>
-#include <fstream>
 
 #include <iostream>
 #include <iomanip>
