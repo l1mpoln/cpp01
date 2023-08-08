@@ -6,7 +6,7 @@
 /*   By: vkuzmin <zxcmasterass@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 16:56:28 by vkuzmin           #+#    #+#             */
-/*   Updated: 2023/08/06 17:24:28 by vkuzmin          ###   ########.fr       */
+/*   Updated: 2023/08/08 17:09:23 by vkuzmin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 #include <iomanip>
 #include <fstream>
 
-void ft_replace(std::string &line, const std::string &to_r, const std::string &r_w)
+void	ft_replace(std::string *line, std::string to_r, std::string r_w)
 {
-    size_t start_pos = 0;
+	size_t	start_pos;
 
-    while ((start_pos = line.find(to_r, start_pos)) != std::string::npos)
-    {
-        line.replace(start_pos, to_r.length(), r_w);
-        start_pos += r_w.length(); // Чтобы избежать зацикливания при замене подстроки на другую, которая содержит исходную.
-    }
+	while ((start_pos = (*line).find(to_r)) != std::string::npos)
+	{
+		(*line).erase(start_pos, to_r.length());
+		(*line).insert(start_pos, r_w);
+	}
 }
 
 int main(int argc, char **argv)
@@ -58,11 +58,9 @@ int main(int argc, char **argv)
 
     while (getline(ifs, line_read))
     {
-        ft_replace(line_read, to_replace, replace_with);
+        ft_replace(&line_read, to_replace, replace_with);
         ofs << line_read << '\n';
     }
-
-    // Не обязательно закрывать файлы вручную, так как это произойдет автоматически при выходе из функции.
 
     return 0;
 }
